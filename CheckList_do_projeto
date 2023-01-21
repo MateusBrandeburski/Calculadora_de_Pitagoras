@@ -11,7 +11,7 @@ Calculadora Teorema de Pitágoras
     7º - Tratamento de erro
     8º - Deploy (8.1)
     9º - Testar 
-    10º - Criar Readme do projeto
+    10º - Criar Readme do projeto (10.1*)
     11º - Enviar
 
 
@@ -26,3 +26,7 @@ Calculadora Teorema de Pitágoras
     8.1 - Deploy no Render
 
 - Readme GitHub
+
+   10.1 - Explicar estruturas de pastas
+   10.2 - gif da execução
+   10.3 - tecnologias utilizadas
