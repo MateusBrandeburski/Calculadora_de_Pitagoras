@@ -1,14 +1,28 @@
-
-
-
 Calculadora Teorema de Pitágoras
-
-- Front-end
-
-- Back-end
 
  O back-end será desenvolvido em Flask
 
+    1º - Criar um endpoint hello world básico
+    2º - Criar o endpoint query para chamada da calculadora
+    3º - Integrar front para essa rota (3.1)
+    4º - Tratamento de erro
+    5º - Perfumaria do front (5.1)
+    6º - Definiar algo para rota raiz ('/')
+    7º - Tratamento de erro
+    8º - Deploy (8.1)
+    9º - Testar 
+    10º - Criar Readme do projeto
+    11º - Enviar
+
+
+- Front-end
+    
+    3.1 - HTML básico
+    5.1 - CSS e HTML (JS se der tempo)
+
+
 - Deploy
+
+    8.1 - Deploy no Render
 
 - Readme GitHub
