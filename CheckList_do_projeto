@@ -2,6 +2,7 @@ Calculadora Teorema de Pitágoras
 
  O back-end será desenvolvido em Flask
 
+    0.1º - Criar ambiente virtal para o projeto ~ venv
     1º - Criar um endpoint hello world básico
     2º - Criar o endpoint query para chamada da calculadora
     3º - Integrar front para essa rota (3.1)
