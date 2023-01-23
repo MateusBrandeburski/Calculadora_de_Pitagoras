@@ -5,7 +5,7 @@ app = Flask(__name__, template_folder='templates')
 
 
 @app.route("/query", methods=["GET"])
-def caluladora_raiz():
+def caculadora_raiz():
     query_params = request.args
     try:
         catetoB = float(query_params.get('catetoB'))
