@@ -22,7 +22,7 @@ def caculadora_raiz():
 
 
 @app.route("/", methods=['GET', 'POST'])
-def index():
+def perfumaria():
 
     try:
         if request.method == "POST":
