@@ -25,20 +25,36 @@ def caculadora_raiz():
 def index():
 
     try:
-        if request.method == "POST":
+        if request.form['action'] == 'hipotenusa':
+            return render_template('hipotenusa.html')           
+    except:
+        pass
+    
+    return render_template('index.html')
+    
+ 
+@app.route("/hipotenusa", methods=['GET', 'POST'])
+def hipotenusa():
+
+    try:       
+        if request.method == "GET":
+            return render_template('index.html')         
+            
+        elif request.method == "POST":
             catetoB = float(request.form.get('catetoB'))
             catetoC = float(request.form.get('catetoC'))
             quadrado_da_hipotenusa = catetoB**2 + catetoC**2
             hipotenusa = quadrado_da_hipotenusa ** (1/2)
             # hipotenusa = str(hipotenusa[0:4])
             
-            return render_template('hipotenusa.html', catetoB=catetoB, catetoC=catetoC, quadrado_da_hipotenusa=quadrado_da_hipotenusa, hipotenusa=hipotenusa)
-        
+            return render_template('hipotenusa2.html', catetoB=catetoB, catetoC=catetoC, quadrado_da_hipotenusa=quadrado_da_hipotenusa, hipotenusa=hipotenusa)                  
     except:
-        pass
+         pass    
+        
+    return render_template('hipotenusa.html')
+   
     
     
-    return render_template('index.html')
 
 
 if __name__ == '__main__':
