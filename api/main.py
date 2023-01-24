@@ -22,18 +22,22 @@ def caculadora_raiz():
 
 
 @app.route("/", methods=['GET', 'POST'])
-def perfumaria():
+def index():
 
     try:
         if request.method == "POST":
             catetoB = float(request.form.get('catetoB'))
             catetoC = float(request.form.get('catetoC'))
-            hipotenusa = catetoB**2 + catetoC**2
+            quadrado_da_hipotenusa = catetoB**2 + catetoC**2
+            hipotenusa = quadrado_da_hipotenusa ** (1/2)
+            # hipotenusa = str(hipotenusa[0:4])
             
-            return render_template('hipotenusa.html', catetoB=catetoB, catetoC=catetoC, hipotenusa=hipotenusa)
+            return render_template('hipotenusa.html', catetoB=catetoB, catetoC=catetoC, quadrado_da_hipotenusa=quadrado_da_hipotenusa, hipotenusa=hipotenusa)
+        
     except:
         pass
-        
+    
+    
     return render_template('index.html')
 
 
