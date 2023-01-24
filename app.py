@@ -35,14 +35,19 @@ def index():
         elif request.form['action'] == 'adjacente':    
             return render_template('cateto_adjacente.html') 
         
-        elif request.form['action'] == 'voltar':
-            return render_template('index.html')
+        elif request.form['action'] == 'info':
+            return render_template('infos.html')
                 
     except:
         pass
     
     return render_template('index.html')
+
+@app.route("/", methods=['GET'])
+def infos():
     
+        if request.form['action'] == 'voltar':
+            return render_template('index.html')
  
 @app.route("/hipotenusa", methods=['GET', 'POST'])
 def hipotenusa():
@@ -62,25 +67,30 @@ def hipotenusa():
         return render_template('hipotenusa.html')
 
     
-# @app.route("/cateto_adjacente", methods=['GET', 'POST'])
-# def catato_adjacente():
+@app.route("/cateto_adjacente", methods=['GET', 'POST'])
+def cateto_adjacente():
     
-#     try:            
-#         if request.form['action'] == '':
+    try:            
+        if request.form['action'] == 'form_adjacente':
                     
-#             catetoB = float(request.form.get('catetoB'))
-#             catetoC = float(request.form.get('catetoC'))
-#             quadrado_da_hipotenusa = catetoB**2 + catetoC**2
-#             hipotenusa = quadrado_da_hipotenusa ** (1/2)
-            
-#             return render_template('hipotenusa_resposta.html', catetoB=catetoB, catetoC=catetoC, quadrado_da_hipotenusa=quadrado_da_hipotenusa, hipotenusa=hipotenusa)
-#         else:
-#             return render_template('index.html')
-#     except:
-#         return render_template('hipotenusa.html')
+            cateto_oposto = float(request.form.get('cateto_oposto'))
+            hipotenusa = float(request.form.get('hipotenusa'))
+            # ca² + x² = h²
+            quadrado_do_cateto = cateto_oposto**2
+            quadrado_da_hipotenusa = hipotenusa**2
+            # x² = h² - ca²
+            passa_subtraindo = quadrado_da_hipotenusa - quadrado_do_cateto
+            print(passa_subtraindo)
+            cateto_adjacente_final = passa_subtraindo ** (1/2) # ou 0,5
+                       
+            return render_template('cateto_adjacente_resposta.html', cateto_oposto=cateto_oposto, hipotenusa=hipotenusa, cateto_adjacente_final=cateto_adjacente_final)
+        else:
+            return render_template('index.html')
+    except:
+        return render_template('cateto_adjacente.html')
 
 
 
 
 if __name__ == '__main__':
-    app.run()
+    app.run(host='0.0.0.0', port=8000, debug=True)
