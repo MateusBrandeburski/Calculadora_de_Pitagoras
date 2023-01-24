@@ -26,6 +26,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+calculadora_teorema_de_pitagoras/
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -127,3 +128,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+Calculadora_Teorema_Pitagoras

@@ -10,6 +10,7 @@ Calculadora Teorema de Pitágoras
     3º - Integrar front para essa rota (3.1)
     4º - Tratamento de erro
     5º - Perfumaria do front (5.1)
+        - COLOCAR ÁUDIO?
     6º - Definiar algo para rota raiz ('/')
     7º - Tratamento de erro
     8º - Deploy (8.1)

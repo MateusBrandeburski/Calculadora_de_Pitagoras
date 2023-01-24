@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-
+import os
 
 app = Flask(__name__, template_folder='templates')
 
@@ -61,7 +61,6 @@ def hipotenusa():
     except:
         return render_template('hipotenusa.html')
 
-
     
 # @app.route("/cateto_adjacente", methods=['GET', 'POST'])
 # def catato_adjacente():
@@ -84,4 +83,5 @@ def hipotenusa():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    port = int(os.getenv('PORT'), '5000')
+    app.run(debug=True, host='0.0.0.0', port = port)
