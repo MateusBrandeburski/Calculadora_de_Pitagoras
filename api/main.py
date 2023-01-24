@@ -55,12 +55,33 @@ def hipotenusa():
             quadrado_da_hipotenusa = catetoB**2 + catetoC**2
             hipotenusa = quadrado_da_hipotenusa ** (1/2)
             
-            return render_template('hipotenusa.html', catetoB=catetoB, catetoC=catetoC, quadrado_da_hipotenusa=quadrado_da_hipotenusa, hipotenusa=hipotenusa)
+            return render_template('hipotenusa_resposta.html', catetoB=catetoB, catetoC=catetoC, quadrado_da_hipotenusa=quadrado_da_hipotenusa, hipotenusa=hipotenusa)
         else:
             return render_template('index.html')
     except:
         return render_template('hipotenusa.html')
+
+
     
+# @app.route("/cateto_adjacente", methods=['GET', 'POST'])
+# def catato_adjacente():
+    
+#     try:            
+#         if request.form['action'] == '':
+                    
+#             catetoB = float(request.form.get('catetoB'))
+#             catetoC = float(request.form.get('catetoC'))
+#             quadrado_da_hipotenusa = catetoB**2 + catetoC**2
+#             hipotenusa = quadrado_da_hipotenusa ** (1/2)
+            
+#             return render_template('hipotenusa_resposta.html', catetoB=catetoB, catetoC=catetoC, quadrado_da_hipotenusa=quadrado_da_hipotenusa, hipotenusa=hipotenusa)
+#         else:
+#             return render_template('index.html')
+#     except:
+#         return render_template('hipotenusa.html')
+
+
+
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=True)
