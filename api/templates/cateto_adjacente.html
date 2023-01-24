@@ -7,23 +7,23 @@
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
     <title>Calculadora de Pitágoras</title>
-    
 </head>
-
-<body>
+    <body>
 
     <div class='container' style="padding-top: 50px">
 
-    <form method='post' action='/'>
+    <form method='get' action='/hipotenusa_resposta'>
+
     <h1>Calculadora de Pitágoras</h1>
     <hr>
     <br>
+
     <div class='form-group-row'>
         <div class='col-sm-6'>
             <label>Entre com o lado do catedo B </label>
         </div>
         <div class="col-sm-6">
-            <input type="number" class="form-control" name="catetoB" placeholder="Cateto (b)">
+            <input type='number' class='form-control' name='catetoB' value="{{catetoB}}">
         </div>
     </div>
 
@@ -32,8 +32,7 @@
             <label>Entre com o lado do catedo C </label>
         </div>
         <div class="col-sm-6">
-            <input type="number" class="form-control" name="catetoC"  placeholder="Cateto (c)">   
-
+            <input type="number" class="form-control" name='catetoC' value="{{catetoC}}">   
         </div>
     </div>
 
@@ -42,8 +41,18 @@
             <button type="submit" class="btn btn-primary">Calcular Hipotenusa</button>
         </div>
     </div>
-    </form>
+    <div class="form-group row">
+        <div class="col-sm-12">
+            <button type="submit" class="btn-primary" name="action" value="voltar">Voltar</button>
+        </div>
     </div>
 
-</body>     
+    <div class="respostas">
+        <p>O Quadrado da cateto é: {{quadrado_da_hipotenusa}}</p>
+        <p>Portanto cateto é: {{hipotenusa}}</p>
+    </div>
+
+    </form>
+    </div>
+    </body>     
 </html>

@@ -51,6 +51,11 @@ body {
 
 }
 
+.div_voltar {
+    margin: 0 auto;
+}
+
+
 form {
     background-color: #fff;
     max-width: 500px;

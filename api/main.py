@@ -10,9 +10,13 @@ def caculadora_raiz():
     try:
         catetoB = float(query_params.get('catetoB'))
         catetoC = float(query_params.get('catetoC'))
-        hipotenusa = catetoB**2 + catetoC**2
+        quadrado_da_hipotenusa = catetoB**2 + catetoC**2
+        hipotenusa = quadrado_da_hipotenusa ** (1/2)
         
-        return {"hipotenusa":hipotenusa}
+        return {
+            "quadrado_hipotenusa": quadrado_da_hipotenusa,
+            "hipotenusa":hipotenusa         
+            }
     
     except TypeError:
       return {"204":"no_content", "query":"faltam_parametros"}
@@ -26,7 +30,14 @@ def index():
 
     try:
         if request.form['action'] == 'hipotenusa':
-            return render_template('hipotenusa.html')           
+            return render_template('hipotenusa.html')
+        
+        elif request.form['action'] == 'adjacente':    
+            return render_template('cateto_adjacente.html') 
+        
+        elif request.form['action'] == 'voltar':
+            return render_template('index.html')
+                
     except:
         pass
     
@@ -35,27 +46,21 @@ def index():
  
 @app.route("/hipotenusa", methods=['GET', 'POST'])
 def hipotenusa():
-
-    try:       
-        if request.method == "GET":
-            return render_template('index.html')         
-            
-        elif request.method == "POST":
+    
+    try:            
+        if request.form['action'] == 'form_hipotenusa':
+                    
             catetoB = float(request.form.get('catetoB'))
             catetoC = float(request.form.get('catetoC'))
             quadrado_da_hipotenusa = catetoB**2 + catetoC**2
             hipotenusa = quadrado_da_hipotenusa ** (1/2)
-            # hipotenusa = str(hipotenusa[0:4])
             
-            return render_template('hipotenusa2.html', catetoB=catetoB, catetoC=catetoC, quadrado_da_hipotenusa=quadrado_da_hipotenusa, hipotenusa=hipotenusa)                  
+            return render_template('hipotenusa.html', catetoB=catetoB, catetoC=catetoC, quadrado_da_hipotenusa=quadrado_da_hipotenusa, hipotenusa=hipotenusa)
+        else:
+            return render_template('index.html')
     except:
-         pass    
-        
-    return render_template('hipotenusa.html')
-   
+        return render_template('hipotenusa.html')
     
-    
-
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8000, debug=True)
