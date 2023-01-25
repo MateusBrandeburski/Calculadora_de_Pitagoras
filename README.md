@@ -1,4 +1,12 @@
-# Calculadora_de_Pitagoras
+<h1 align="center"> Calculadora de Pitágoras </h1>
+
+## Descrição do Projeto:
+
+O projeto conta com duas formas de utilização. Uma é pela interface gráfica, feita para usuários e a outra é pelas rotas Query.
+
+Trata-se de uma calculadora que calcula baseado na fórmula do Teorema de Pitágoras que diz: **É possível calcular qualquer um dos dados de um triângulo retângunlo, se tivermos o valor de 2 lados.** 
+
+*Cateteto Adjacente² + Cateto Oposto² = hipotenusa²*
 
 https://calculador-de-pitagoras.onrender.com/
 com interface gráfica para o usuário
