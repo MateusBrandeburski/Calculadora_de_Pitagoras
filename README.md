@@ -41,6 +41,6 @@ https://calculador-de-pitagoras.onrender.com/query_adjacente?catetoO=2&hipotenus
 | :---: | :---: | :---: |
 
 ## Desenvolvido por:
-| [<img src="https://user-images.githubusercontent.com/102932581/177051558-31499416-a0cf-4495-8ab7-409dabca514f.jpg" width=115><br><br><sub>Mateus Brandeurski Ramos</sub>](https://github.com/mateusbrandeburski) |
+| [<img src="https://user-images.githubusercontent.com/102932581/177051558-31499416-a0cf-4495-8ab7-409dabca514f.jpg" width=115><br><br><sub>Mateus Brandeburski Ramos</sub>](https://github.com/mateusbrandeburski) |
 | :---: |
 
