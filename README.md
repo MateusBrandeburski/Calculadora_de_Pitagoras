@@ -8,10 +8,13 @@ Trata-se de uma calculadora que calcula baseado na fórmula do Teorema de Pitág
 
 *Cateteto Adjacente² + Cateto Oposto² = hipotenusa²*
 
-## Aplicação
+## Aplicação:
 
+<div align="center">
+<img src="https://user-images.githubusercontent.com/102932581/214587474-441297ce-459c-4410-aef8-f413add8a024.gif" />
+</div>
 
-## Links
+## Links:
 
 **Calculadora com interface gráfica para o usuário:**
 
