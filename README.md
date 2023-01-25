@@ -8,15 +8,25 @@ Trata-se de uma calculadora que calcula baseado na fórmula do Teorema de Pitág
 
 *Cateteto Adjacente² + Cateto Oposto² = hipotenusa²*
 
+## Aplicação
+
+
+## Links
+
+**Calculadora com interface gráfica para o usuário:**
+
 https://calculador-de-pitagoras.onrender.com/
-com interface gráfica para o usuário
 
+**Calculadora Query:**
 
+Rotas:
+
+*Calcula a hipotenusa:*
 https://calculador-de-pitagoras.onrender.com/query_hipo?catetoB=2&catetoC=5
-calcula a hipotenusa
 
+Calcula o cateto oposto
 https://calculador-de-pitagoras.onrender.com/query_oposto?catetoA=2&hipotenusa=5
-calcula o cateto oposto
 
+Calcula o cateto adjacente
 https://calculador-de-pitagoras.onrender.com/query_adjacente?catetoO=2&hipotenusa=5
-calcula o cateto adjacente
+
