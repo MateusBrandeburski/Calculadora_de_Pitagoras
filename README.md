@@ -33,3 +33,7 @@ https://calculador-de-pitagoras.onrender.com/query_oposto?catetoA=2&hipotenusa=5
 Calcula o cateto adjacente
 https://calculador-de-pitagoras.onrender.com/query_adjacente?catetoO=2&hipotenusa=5
 
+## Tecnologias Utilizadas:
+| <img src="https://user-images.githubusercontent.com/102932581/214597212-70086c3f-889e-44ba-bf62-806da9c86339.png" width=115><br><sub>Flask|  <img src="https://user-images.githubusercontent.com/102932581/214597761-9d28bf46-1658-414a-ae1d-559190d68040.png" width=115><br><sub>Render</sub>|  <img src="https://user-images.githubusercontent.com/102932581/177049046-6d72585c-c7f9-493f-82cd-3c85bf141a4f.png" width=115><br><sub>Visual Studio</sub>| <img src="https://user-images.githubusercontent.com/102932581/177049095-88a849aa-e9ee-4558-83f8-aaeeebb91cb2.png" width=115><br><sub>Git Bash</sub>|
+| :---: | :---: | :---: | :---: |
+
