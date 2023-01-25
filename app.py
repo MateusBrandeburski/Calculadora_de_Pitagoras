@@ -4,8 +4,8 @@ from enviar_email.gmail import envia_email
 app = Flask(__name__, template_folder='templates')
 
 
-@app.route("/query", methods=["GET"])
-def caculadora_raiz():
+@app.route("/query_hipo", methods=["GET"])
+def query_hipo():
     query_params = request.args
     try:
         catetoB = float(query_params.get('catetoB'))
@@ -16,6 +16,48 @@ def caculadora_raiz():
         return {
             "quadrado_hipotenusa": quadrado_da_hipotenusa,
             "hipotenusa":hipotenusa         
+            }
+    
+    except TypeError:
+      return {"204":"no_content", "query":"faltam_parametros"}
+  
+    except ValueError:
+        return {"400":"bod_request", "number":"apenas_float_e_int_suportados"}
+    
+@app.route("/query_oposto", methods=["GET"])
+def query_oposto():
+    query_params = request.args
+    try:
+        catetoA = float(query_params.get('catetoA'))
+        hipotenusa = float(query_params.get('hipotenusa'))
+        quadrado_do_cateto_adjacente = catetoA**2
+        quadrado_da_hipotenusa = hipotenusa**2
+        passa_subtraindo = quadrado_da_hipotenusa - quadrado_do_cateto_adjacente
+        cateto_oposto_final = passa_subtraindo ** (1/2) # ou 0,5
+        
+        return {
+            "cateto_oposto":cateto_oposto_final  
+            }
+    
+    except TypeError:
+      return {"204":"no_content", "query":"faltam_parametros"}
+  
+    except ValueError:
+        return {"400":"bod_request", "number":"apenas_float_e_int_suportados"}
+
+@app.route("/query_adjacente", methods=["GET"])
+def query_adjacente():
+    query_params = request.args
+    try:
+        catetoO = float(query_params.get('catetoO'))
+        hipotenusa = float(query_params.get('hipotenusa'))
+        quadrado_do_cateto = catetoO**2
+        quadrado_da_hipotenusa = hipotenusa**2
+        passa_subtraindo = quadrado_da_hipotenusa - quadrado_do_cateto
+        cateto_adjacente_final = passa_subtraindo ** (1/2) # ou 0,5
+        
+        return {
+            "cateto_adjacente":cateto_adjacente_final  
             }
     
     except TypeError:
@@ -36,7 +78,10 @@ def index():
             return render_template('cateto_adjacente.html') 
         
         elif request.form['action'] == 'info':
-            envia_email()
+            try:
+                envia_email()
+            except:
+                pass
             return render_template('infos.html')
             
         elif request.form['action'] == 'oposto':
@@ -48,11 +93,6 @@ def index():
     
     return render_template('index.html')
 
-# @app.route("/", methods=['GET'])
-# def infos():
-    
-#         if request.form['action'] == 'voltar':
-#             return render_template('index.html')
  
 @app.route("/hipotenusa", methods=['GET', 'POST'])
 def hipotenusa():

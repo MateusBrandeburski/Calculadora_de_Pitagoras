@@ -98,20 +98,25 @@ form {
 }
 
 .respostas {
-    font-size: 17px;
-    background: blue;
-    margin-top: 16px;
-    margin-bottom: 16p
+ 
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
 }
 
-p {
-    margin-top: 0px;
+.infomacao {
+    background-color: #2D5966;
+    color: rgb(255, 255, 255);
+    padding: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    border-radius: 10px;
     
 }
 
-.audio {
-    align-items: center;
-    align-content: center;
-    align-self: start;
-    
+.link {
+    color: #ffffff;
+    font-family: sans-serif;
+
 }
