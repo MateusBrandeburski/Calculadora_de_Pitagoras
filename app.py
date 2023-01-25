@@ -1,5 +1,5 @@
 from flask import Flask, request, render_template
-
+from enviar_email.gmail import envia_email
 
 app = Flask(__name__, template_folder='templates')
 
@@ -36,9 +36,11 @@ def index():
             return render_template('cateto_adjacente.html') 
         
         elif request.form['action'] == 'info':
+            envia_email()
             return render_template('infos.html')
-        
+            
         elif request.form['action'] == 'oposto':
+           
             return render_template('cateto_oposto.html')
         
     except:

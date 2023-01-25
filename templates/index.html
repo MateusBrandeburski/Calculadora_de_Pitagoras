@@ -11,32 +11,36 @@
 
 <body>
 
-    <div class='container' style="padding-top: 160px">
+    <div class='container' style="padding-top: 40px">
 
-    <form id='calcular' method='post' action='/'>
-    <h1>Calculadora de Pitágoras</h1>
-    <hr>
-    <br>
+        <form id='calcular' method='post' action='/'>
+            <h1>Calculadora de Pitágoras</h1>
+            <hr>
+            <br>
    
-    <div class="col-sm-12">
-        <button   type="submit" class="btn" name="action" value="adjacente">Calcular Cateto Adjacente</button>
-    </div>
+            <div class="col-sm-12">
+                <button   type="submit" class="btn" name="action" value="adjacente">Calcular Cateto Adjacente</button>
+            </div>
 
   
-    <div class="col-sm-12">
-        <button type="submit" class="btn" name="action" value="oposto">Calcular Cateto Oposto</button>
-    </div>
+        <div class="col-sm-12">
+            <button type="submit" class="btn" name="action" value="oposto">Calcular Cateto Oposto</button>
+        </div>
 
+        
+        <div class="col-sm-12">
+            <button type="submit" class="btn" name="action" value="hipotenusa">Calcular Hipotenusa</button>
+        </div>
+        <div class="col-sm-12">
+            <button type="submit" class="btn" name="action" value="info">Informações do Desenvolvedor</button>
+        </div>
+            <!-- <div class="audio">
+            <audio class="audio" src="{{ url_for('static', filename='X2Download.app - Theory of Everything - Ending Scene Music (The Cinematic Orchestra - Arrival of the birds) (64 kbps).mp3') }}"  controls loop >
+        
+            </audio> -->
+        </div>
     
-    <div class="col-sm-12">
-        <button type="submit" class="btn" name="action" value="hipotenusa">Calcular Hipotenusa</button>
-    </div>
-    <div class="col-sm-12">
-        <button type="submit" class="btn" name="action" value="info">Informações do Desenvolvedor</button>
-    </div>
-   
-   
-    </form>
+        </form>
     </div>
 
 </body>     
