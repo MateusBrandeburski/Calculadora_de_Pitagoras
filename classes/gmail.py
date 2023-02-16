@@ -26,7 +26,3 @@ class Email():
             smtp.send_message(msg)
 
 
-# quando estiver em POO, deve ser executado assim:
-
-# enviar = Email("mateus@trovale.com.br", "karateka30")
-# enviar.envia_email()

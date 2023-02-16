@@ -8,7 +8,7 @@ app = Flask(__name__, template_folder='templates')
 enviar = Email(os.environ["EMAIL"], os.environ["SENHA"])
 
 
-@app.route("/teorema_de_pitagoras", methods=["GET"])
+@app.route("/teorema_de_pitagoras", method=["GET"])
 def query_teorema():
     
     hipotenusa = request.args.get("hipotenusa")
