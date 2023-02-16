@@ -1,71 +1,40 @@
 from flask import Flask, request, render_template
-from enviar_email.gmail import envia_email
+from classes.formula_pitagoras import TeoremaDePitagoras
+from classes.gmail import Email
+import os
 
+# classes instânciadas
 app = Flask(__name__, template_folder='templates')
+enviar = Email(os.environ["EMAIL"], os.environ["SENHA"])
 
 
-@app.route("/query_hipo", methods=["GET"])
-def query_hipo():
-    query_params = request.args
-    try:
-        catetoB = float(query_params.get('catetoB'))
-        catetoC = float(query_params.get('catetoC'))
-        quadrado_da_hipotenusa = catetoB**2 + catetoC**2
-        hipotenusa = quadrado_da_hipotenusa ** (1/2)
-        
-        return {
-            "quadrado_hipotenusa": quadrado_da_hipotenusa,
-            "hipotenusa":hipotenusa         
-            }
+@app.route("/teorema_de_pitagoras", methods=["GET"])
+def query_teorema():
     
+    hipotenusa = request.args.get("hipotenusa")
+    catetoA = request.args.get("catetoA")
+    catetoO = request.args.get("catetoO") 
+     
+    try:
+        if (catetoA and hipotenusa) or (catetoO and hipotenusa): 
+            """Como funciona essa rota:
+            O aplicativo está sendo desenvolvido usando POO, por isso, os parâmetros são passado na instância da classe TeoremaDePitagoras. 
+            
+            O round, dentro do return, serve para limitar o número de casa decimais. Sendo que 2, correponde == 2.22. Se tivesse 3, correponderia == 3.333
+            """    
+            teorema = TeoremaDePitagoras(catetoA=catetoA, catetoO=catetoO,hipotenusa=hipotenusa)
+            return { "Cateto": round(teorema.calcular_catetos(), 2) }
+        
+        elif catetoA and catetoO:      
+            teorema = TeoremaDePitagoras(catetoA=catetoA, catetoO=catetoO)       
+            return { "Hipotenusa": round(teorema.calcular_hipotenusa(), 2)}
+      
     except TypeError:
       return {"204":"no_content", "query":"faltam_parametros"}
   
     except ValueError:
         return {"400":"bod_request", "number":"apenas_float_e_int_suportados"}
     
-@app.route("/query_oposto", methods=["GET"])
-def query_oposto():
-    query_params = request.args
-    try:
-        catetoA = float(query_params.get('catetoA'))
-        hipotenusa = float(query_params.get('hipotenusa'))
-        quadrado_do_cateto_adjacente = catetoA**2
-        quadrado_da_hipotenusa = hipotenusa**2
-        passa_subtraindo = quadrado_da_hipotenusa - quadrado_do_cateto_adjacente
-        cateto_oposto_final = passa_subtraindo ** (1/2) # ou 0,5
-        
-        return {
-            "cateto_oposto":cateto_oposto_final  
-            }
-    
-    except TypeError:
-      return {"204":"no_content", "query":"faltam_parametros"}
-  
-    except ValueError:
-        return {"400":"bod_request", "number":"apenas_float_e_int_suportados"}
-
-@app.route("/query_adjacente", methods=["GET"])
-def query_adjacente():
-    query_params = request.args
-    try:
-        catetoO = float(query_params.get('catetoO'))
-        hipotenusa = float(query_params.get('hipotenusa'))
-        quadrado_do_cateto = catetoO**2
-        quadrado_da_hipotenusa = hipotenusa**2
-        passa_subtraindo = quadrado_da_hipotenusa - quadrado_do_cateto
-        cateto_adjacente_final = passa_subtraindo ** (1/2) # ou 0,5
-        
-        return {
-            "cateto_adjacente":cateto_adjacente_final  
-            }
-    
-    except TypeError:
-      return {"204":"no_content", "query":"faltam_parametros"}
-  
-    except ValueError:
-        return {"400":"bod_request", "number":"apenas_float_e_int_suportados"}
-
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -78,8 +47,8 @@ def index():
             return render_template('cateto_adjacente.html') 
         
         elif request.form['action'] == 'info':
-            try:
-                envia_email()
+            try:  
+                enviar.envia_email()
             except:
                 pass
             return render_template('infos.html')
@@ -111,6 +80,7 @@ def hipotenusa():
     except:
         return render_template('hipotenusa.html')
 
+
     
 @app.route("/cateto_adjacente", methods=['GET', 'POST'])
 def cateto_adjacente():
@@ -133,7 +103,8 @@ def cateto_adjacente():
             return render_template('index.html')
     except:
         return render_template('cateto_adjacente.html')
-
+        
+        
 @app.route("/cateto_oposto", methods=['GET', 'POST'])
 def cateto_oposto():
     
@@ -157,7 +128,5 @@ def cateto_oposto():
         return render_template('cateto_oposto.html')
 
 
-
-
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000, debug=True)
+    app.run( host='0.0.0.0', port=8000, debug=True)
